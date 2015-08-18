@@ -40,7 +40,7 @@
     return this.each(function() {
 
       // Don't do 1 column, or non-existent method
-      if (settings.colNum <= 1 || settings.l <= 1)return null;
+      if (settings.colNum <= 1 || settings.l <= 1) return null;
       if (settings.method !== 'tb') {
         if (settings.method !== 'lr') return null;
       }
@@ -90,10 +90,9 @@
       if (itemsCurCol < 1) break;
 
       // css
-      classAtr = 'col' + '-' + i + ' ' + s.colClass;
+      classAtr = 'col' + '-' + (i + 1) + ' ' + s.colClass;
 
       if (itemsCurCol === 1) {
-
         // Only one item in column, no html, add col classes t item
         html += $(s.colItems[key]).first().addClass(classAtr).prop('outerHTML');
         key++;
@@ -122,26 +121,37 @@
    */
   function lr_columns(s) {
 
-    var key = 0, columnArr = [], html = '';
+    var itemKey = 0, a = [], classAtr = '', html = '';
 
-    // Distribute items across columns
-    for (var i = 0; i < s.l; i++) {
-      // for column [key] init array
-      if (typeof columnArr[key] === 'undefined') columnArr[key] = [];
+    // Items loop break when none
+    while ($(s.colItems[itemKey]).length) {
 
-      // Return to first column
-      key = key < s.colNum ? key : 0;
-
-      // Insert items into list
-      columnArr[key][i] = $(s.colItems[i]).prop('outerHTML');
-      key++;
+      // Distribute item in each column
+      // break when no item left
+      for (var i = 0; i < s.colNum; i++) {
+        if (!$(s.colItems[itemKey]).length) break;
+        if (typeof a[i] === 'undefined') a[i] = [];
+        a[i].push($(s.colItems[itemKey]).prop('outerHTML'));
+        itemKey++;
+      }
     }
 
-    // Build html
-    for (var j = 0; j < s.colNum; j++) {
-      html += '<li class="col' + '-' + j + ' ' + s.colClass + '"><ul>';
-      html += columnArr[j].join(' ');
-      html += '</ul></li>';
+    // Process 2d array to html
+    // Account for too many column by using a.length
+    for (var j = 0, len = a.length; j < len; j++) {
+
+      // css
+      classAtr = 'col' + '-' + (j + 1) + ' ' + s.colClass;
+
+      if (a[j].length === 1) {
+        // Only one item
+        html += $(a[j][0]).first().addClass(classAtr).prop('outerHTML');
+      } else {
+        // Wrap many items
+        html += '<li class="' + classAtr + '"><ul>';
+        html += a[j].join(' ');
+        html += '</ul></li>';
+      }
     }
     return html;
   }

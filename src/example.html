@@ -14,10 +14,8 @@
 
             // Top to bottom example
             // =============================================================
-            $('#tb-col-a')
-                    .lst2cols({colNum: 3, colBlockClass: 'col-block'})
-                    .find('#tb-col-b')
-                    .lst2cols({colBlockClass: 'col-block'});
+            $('#tb-col-a').lst2cols({colNum: 3});
+            $('#tb-col-b').lst2cols();
 
             // Left to right example
             // =============================================================
@@ -26,25 +24,20 @@
                 colNum: 3,
                 method: 'lr',
                 colClass: 'col col-lr',
-                colBlockClass: 'col-block'
+                colBlockClass: 'col-block blah'
             };
 
-            $('#lr-col-a')
-                    .lst2cols(o)
-                    .find('#lr-col-b')
-                    .lst2cols({colBlockClass: 'col-block', method: 'lr'});
+            $('#lr-col-a').lst2cols(o);
+            $('#lr-col-b').lst2cols({method: 'lr'});
 
             // Pantone: One more example single items and too many columns
             // =============================================================
-            $('#pantone').lst2cols({method: 'lr', colNum: 9, colClass: 'col', colBlockClass: 'col-block'});
-            $('#pantone-a').lst2cols({colClass: 'col', colBlockClass: 'col-block'});
+            $('#pantone').lst2cols({method: 'lr', colNum: 9});
+            $('#pantone-a').lst2cols({method: 'lr'});
 
             // Just for fun
             // // =============================================================
-            $('#periodic')
-                    .lst2cols({colNum: 17, method: 'lr', colClass: 'col col-lr', colBlockClass: 'col-block'})
-                    .find('ul.to-column-b')
-                    .lst2cols({colBlockClass: 'col-block', method: 'lr'});
+            $('#periodic').lst2cols({colNum: 17, method: 'lr'});
 
         });
     </script>
