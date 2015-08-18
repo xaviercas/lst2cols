@@ -1,6 +1,6 @@
 # lst2cols
 
-## Jquery Plugin to Columnise an Html List
+#### Jquery Plugin to Columnise an Html List
 
 ### Description
 
@@ -18,13 +18,6 @@ Vanilla ` $('ul.my-list').lst2cols(); `
 
 With options ` $('ul.my-list').lst2cols({colNum:3, method:'lr'}); `
 
-Nested lists:
-
-```
-$('ul.to-column-a').lst2cols({colNum: 3, colBlockClass: 'col-block clearfix'})
-.find('ul.to-column-b').lst2cols({colBlockClass: 'col-block clearfix'}); `
-```
-
 The plugin options are:
 
 * `colNum` The number of column. Default is `2`.
@@ -40,3 +33,5 @@ The plugin options are:
 The MIT License (MIT)
 
 Copyright (c) 2015 Xavier Castagné
+
+For Brodie.
