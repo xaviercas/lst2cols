@@ -15,9 +15,9 @@
             // Top to bottom example
             // =============================================================
             $('#tb-col-a')
-                    .lst2cols({colNum: 3, colBlockClass: 'col-block clearfix'})
+                    .lst2cols({colNum: 3, colBlockClass: 'col-block'})
                     .find('#tb-col-b')
-                    .lst2cols({colBlockClass: 'col-block clearfix'});
+                    .lst2cols({colBlockClass: 'col-block'});
 
             // Left to right example
             // =============================================================
@@ -26,25 +26,25 @@
                 colNum: 3,
                 method: 'lr',
                 colClass: 'col col-lr',
-                colBlockClass: 'col-block clearfix'
+                colBlockClass: 'col-block'
             };
 
             $('#lr-col-a')
                     .lst2cols(o)
                     .find('#lr-col-b')
-                    .lst2cols({colBlockClass: 'col-block clearfix', method: 'lr'});
+                    .lst2cols({colBlockClass: 'col-block', method: 'lr'});
 
             // Pantone: One more example single items and too many columns
             // =============================================================
-            $('#pantone').lst2cols({colNum: 9, colClass: 'col', colBlockClass: 'col-block clearfix'});
-            $('#pantone-a').lst2cols({colClass: 'col', colBlockClass: 'col-block clearfix'});
+            $('#pantone').lst2cols({method: 'lr', colNum: 9, colClass: 'col', colBlockClass: 'col-block'});
+            $('#pantone-a').lst2cols({colClass: 'col', colBlockClass: 'col-block'});
 
-            // Just procrastinating
+            // Just for fun
             // // =============================================================
             $('#periodic')
-                    .lst2cols({colNum: 17, method: 'lr', colClass: 'col col-lr', colBlockClass: 'col-block clearfix'})
+                    .lst2cols({colNum: 17, method: 'lr', colClass: 'col col-lr', colBlockClass: 'col-block'})
                     .find('ul.to-column-b')
-                    .lst2cols({colBlockClass: 'col-block clearfix', method: 'lr'});
+                    .lst2cols({colBlockClass: 'col-block', method: 'lr'});
 
         });
     </script>
@@ -168,11 +168,11 @@
         <li style="background: rgb(68, 214, 44);"><a href="#">Pastels Neons 802 C</a></li>
         <li style="background: rgb(138, 105, 212);"><a href="#">Pastels Neons 814 C</a>
             <ul id="pantone-a">
-                <li style="background: rgb(232, 230, 223);"><a href="#">9043 C</a></li>
-                <li style="background: rgb(244, 227, 201);"><a href="#">9181 C</a></li>
-                <li style="background: rgb(242, 221, 222);"><a href="#">9281 C</a></li>
-                <li style="background: rgb(218, 223, 236);"><a href="#">9384 C</a></li>
-                <li style="background: rgb(209, 213, 227);"><a href="#">9383 C</a></li>
+                <li style="background: rgb(232, 230, 223);"><a href="#">001 C</a></li>
+                <li style="background: rgb(244, 227, 201);"><a href="#">002 C</a></li>
+                <li style="background: rgb(242, 221, 222);"><a href="#">003 C</a></li>
+                <li style="background: rgb(218, 223, 236);"><a href="#">004 C</a></li>
+                <li style="background: rgb(209, 213, 227);"><a href="#">005 C</a></li>
             </ul>
         </li>
         <li style="background: rgb(0, 188, 227);"><a href="#">Pastels Neons 915 C</a></li>
