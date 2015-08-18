@@ -34,4 +34,4 @@ The MIT License (MIT)
 
 Copyright (c) 2015 Xavier Castagné
 
-For Brodie.
+For Brodie
