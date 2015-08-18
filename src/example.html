@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello!</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="jquery.lst2cols.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            // Top to bottom example
+            // =============================================================
+            $('#tb-col-a')
+                    .lst2cols({colNum: 3, colBlockClass: 'col-block clearfix'})
+                    .find('#tb-col-b')
+                    .lst2cols({colBlockClass: 'col-block clearfix'});
+
+            // Left to right example
+            // =============================================================
+            // Options
+            var o = {
+                colNum: 3,
+                method: 'lr',
+                colClass: 'col col-lr',
+                colBlockClass: 'col-block clearfix'
+            };
+
+            $('#lr-col-a')
+                    .lst2cols(o)
+                    .find('#lr-col-b')
+                    .lst2cols({colBlockClass: 'col-block clearfix', method: 'lr'});
+
+            // Pantone: One more example single items and too many columns
+            // =============================================================
+            $('#pantone').lst2cols({colNum: 9, colClass: 'col', colBlockClass: 'col-block clearfix'});
+            $('#pantone-a').lst2cols({colClass: 'col', colBlockClass: 'col-block clearfix'});
+
+            // Just procrastinating
+            // // =============================================================
+            $('#periodic')
+                    .lst2cols({colNum: 17, method: 'lr', colClass: 'col col-lr', colBlockClass: 'col-block clearfix'})
+                    .find('ul.to-column-b')
+                    .lst2cols({colBlockClass: 'col-block clearfix', method: 'lr'});
+
+        });
+    </script>
+</head>
+<body>
+
+<!-- Original -->
+<div class="example">
+    <h2>List</h2>
+    <pre>
+<code>&ltul id="target-1"&gt</code>
+<code>&nbsp;&nbsp;&ltli&gt...&lt/li&gt</code>
+<code>&nbsp;&nbsp;...&nbsp;</code>
+<code>&nbsp;&nbsp;&ltli&gt...&lt/li&gt</code>
+<code>&nbsp;&nbsp;&ltli&gt</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&ltul id="target-2"&gt</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltli&gt...&lt/li&gt</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltli&gt...&lt/li&gt</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt/ul&gt</code>
+<code>&nbsp;&nbsp;&lt/li&gt</code>
+<code>&nbsp;&nbsp;&ltli&gt...&lt/li&gt</code>
+<code>&nbsp;&nbsp;...&nbsp;</code>
+<code>&nbsp;&nbsp;&ltli&gt...&lt/li&gt</code>
+<code>&lt/ul&gt</code>
+    </pre>
+
+    <code>$('#target-1').lst2cols([{options}]).find("#target-2").lst2cols([{options}]);</code>
+</div>
+
+<div class="example">
+    <h2>List rendered top to bottom</h2>
+
+    <p class="swatch swatch-li">&ltul&gt</p>
+
+    <p class="swatch swatch-ul">&ltli&gt</p>
+
+    <ul id="tb-col-a">
+        <li><a href="#">Test 1</a></li>
+        <li><a href="#">Test 2</a></li>
+        <li><a href="#">Test 3</a></li>
+        <li><a href="#">Test 4</a></li>
+        <li><a href="#">Test 5</a></li>
+        <li><a href="#">Test 6</a></li>
+        <li><a href="#">Test 7</a></li>
+        <li><a href="#">Test 8</a></li>
+        <li><a href="#">Test 9</a></li>
+        <li><a href="#">Test 10</a></li>
+        <li>
+            <a href="#">Test 11</a>
+            <ul id="tb-col-b">
+                <li><a href="#">Test 2-1</a></li>
+                <li><a href="#">Test 2-2</a></li>
+                <li><a href="#">Test 2-3</a></li>
+                <li><a href="#">Test 2-4</a></li>
+                <li><a href="#">Test 2-5</a></li>
+                <li><a href="#">Test 2-6</a></li>
+                <li><a href="#">Test 2-7</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Test 12</a></li>
+        <li><a href="#">Test 13</a></li>
+        <li><a href="#">Test 14</a></li>
+        <li><a href="#">Test 15</a></li>
+        <li><a href="#">Test 16</a></li>
+        <li><a href="#">Test 17</a></li>
+        <li><a href="#">Test 18</a></li>
+        <li><a href="#">Test 19</a></li>
+        <li><a href="#">Test 20</a></li>
+        <li><a href="#">Test 21</a></li>
+    </ul>
+</div>
+
+<div class="example">
+    <h2>List rendered left to right</h2>
+
+    <p class="swatch swatch-li">&ltul&gt</p>
+
+    <p class="swatch swatch-ul">&ltli&gt</p>
+    <ul id="lr-col-a">
+        <li><a href="#">Test 1</a></li>
+        <li><a href="#">Test 2</a></li>
+        <li><a href="#">Test 3</a></li>
+        <li><a href="#">Test 4</a></li>
+        <li><a href="#">Test 5</a></li>
+        <li><a href="#">Test 6</a></li>
+        <li><a href="#">Test 7</a></li>
+        <li><a href="#">Test 8</a></li>
+        <li><a href="#">Test 9</a></li>
+        <li><a href="#">Test 10</a></li>
+        <li>
+            <a href="#">Test 11</a>
+            <ul id="lr-col-b">
+                <li><a href="#">Test 2-1</a></li>
+                <li><a href="#">Test 2-2</a></li>
+                <li><a href="#">Test 2-3</a></li>
+                <li><a href="#">Test 2-4</a></li>
+                <li><a href="#">Test 2-5</a></li>
+                <li><a href="#">Test 2-6</a></li>
+                <li><a href="#">Test 2-7</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Test 12</a></li>
+        <li><a href="#">Test 13</a></li>
+        <li><a href="#">Test 14</a></li>
+        <li><a href="#">Test 15</a></li>
+        <li><a href="#">Test 16</a></li>
+        <li><a href="#">Test 17</a></li>
+        <li><a href="#">Test 18</a></li>
+        <li><a href="#">Test 19</a></li>
+        <li><a href="#">Test 20</a></li>
+        <li><a href="#">Test 21</a></li>
+    </ul>
+</div>
+
+<!-- So on... -->
+<div class="example">
+    <h2>List single column item</h2>
+    <ul id="pantone">
+        <li style="background: rgb(234, 39, 194);"><a href="#">Pastels Neons 807 C</a></li>
+        <li style="background: rgb(68, 214, 44);"><a href="#">Pastels Neons 802 C</a></li>
+        <li style="background: rgb(138, 105, 212);"><a href="#">Pastels Neons 814 C</a>
+            <ul id="pantone-a">
+                <li style="background: rgb(232, 230, 223);"><a href="#">9043 C</a></li>
+                <li style="background: rgb(244, 227, 201);"><a href="#">9181 C</a></li>
+                <li style="background: rgb(242, 221, 222);"><a href="#">9281 C</a></li>
+                <li style="background: rgb(218, 223, 236);"><a href="#">9384 C</a></li>
+                <li style="background: rgb(209, 213, 227);"><a href="#">9383 C</a></li>
+            </ul>
+        </li>
+        <li style="background: rgb(0, 188, 227);"><a href="#">Pastels Neons 915 C</a></li>
+        <li style="background: rgb(255, 214, 53);"><a href="#">Pastels Neons 810 C</a></li>
+        <li style="background: rgb(169, 238, 138);"><a href="#">Pastels Neons 909 C</a></li>
+        <li style="background: rgb(251, 72, 196);"><a href="#">Pastels Neons 813 C</a></li>
+    </ul>
+</div>
+
+<!-- Periodic -->
+<div class="example">
+    <h2>Just fo fun</h2>
+    <ul id='periodic'>
+        <li>
+            <p class="num">1</p>
+
+            <p class="showhide">Hydrogen</p>
+
+            <p class="abr">H</p>
+        </li>
+
+        <li>
+            <p class="num">2</p>
+
+            <p class="showhide">Helium</p>
+
+            <p class="abr">He</p>
+        </li>
+        <li>
+            <p class="num">3</p>
+
+            <p class="showhide">Lithium</p>
+
+            <p class="abr">Li</p>
+        </li>
+        <li>
+            <p class="num">4</p>
+
+            <p class="showhide">Beryllium</p>
+
+            <p class="abr">Be</p>
+        </li>
+        <li>
+            <p class="num">5</p>
+
+            <p class="showhide">Boron</p>
+
+            <p class="abr">B</p>
+        </li>
+        <li>
+            <p class="num">6</p>
+
+            <p class="showhide">Carbon</p>
+
+            <p class="abr">C</p>
+        </li>
+        <li>
+            <p class="num">7</p>
+
+            <p class="showhide">Niliogen</p>
+
+            <p class="abr">N</p>
+        </li>
+        <li>
+            <p class="num">8</p>
+
+            <p class="showhide">Oxygen</p>
+
+            <p class="abr">O</p>
+        </li>
+        <li>
+            <p class="num">9</p>
+
+            <p class="showhide">Fluorine</p>
+
+            <p class="abr">F</p>
+        </li>
+        <li>
+            <p class="num">10</p>
+
+            <p class="showhide">Neon</p>
+
+            <p class="abr">Ne</p>
+        </li>
+        <li>
+            <p class="num">11</p>
+
+            <p class="showhide">Sodium</p>
+
+            <p class="abr">Na</p>
+        </li>
+        <li>
+            <p class="num">12</p>
+
+            <p class="showhide">Magnesium</p>
+
+            <p class="abr">Mg</p>
+        </li>
+        <li>
+            <p class="num">13</p>
+
+            <p class="showhide">Aluminum</p>
+
+            <p class="abr">Al</p>
+        </li>
+        <li>
+            <p class="num">14</p>
+
+            <p class="showhide">Silicon</p>
+
+            <p class="abr">Si</p>
+        </li>
+        <li>
+            <p class="num">15</p>
+
+            <p class="showhide">Phosphorus</p>
+
+            <p class="abr">P</p>
+        </li>
+        <li>
+            <p class="num">16</p>
+
+            <p class="showhide">Sulfur</p>
+
+            <p class="abr">S</p>
+        </li>
+        <li>
+            <p class="num">17</p>
+
+            <p class="showhide">Chlorine</p>
+
+            <p class="abr">Cl</p>
+        </li>
+        <li>
+            <p class="num">18</p>
+
+            <p class="showhide">Argon</p>
+
+            <p class="abr">Ar</p>
+        </li>
+        <li>
+            <p class="num">19</p>
+
+            <p class="showhide">Potassium</p>
+
+            <p class="abr">K</p>
+        </li>
+        <li>
+            <p class="num">20</p>
+
+            <p class="showhide">Calcium</p>
+
+            <p class="abr">Ca</p>
+        </li>
+        <li>
+            <p class="num">21</p>
+
+            <p class="showhide">Scandium</p>
+
+            <p class="abr">Sc</p>
+        </li>
+        <li>
+            <p class="num">22</p>
+
+            <p class="showhide">Titanium</p>
+
+            <p class="abr">Ti</p>
+        </li>
+        <li>
+            <p class="num">23</p>
+
+            <p class="showhide">Vanadium</p>
+
+            <p class="abr">V</p>
+        </li>
+        <li>
+            <p class="num">24</p>
+
+            <p class="showhide">Chromium</p>
+
+            <p class="abr">Cr</p>
+        </li>
+        <li>
+            <p class="num">25</p>
+
+            <p class="showhide">Manganese</p>
+
+            <p class="abr">Mn</p>
+        </li>
+        <li>
+            <p class="num">26</p>
+
+            <p class="showhide">Iron</p>
+
+            <p class="abr">Fe</p>
+        </li>
+        <li>
+            <p class="num">27</p>
+
+            <p class="showhide">Cobalt</p>
+
+            <p class="abr">Co</p>
+        </li>
+        <li>
+            <p class="num">28</p>
+
+            <p class="showhide">Nickel</p>
+
+            <p class="abr">Ni</p>
+        </li>
+        <li>
+            <p class="num">29</p>
+
+            <p class="showhide">Copper</p>
+
+            <p class="abr">Cu</p>
+        </li>
+        <li>
+            <p class="num">30</p>
+
+            <p class="showhide">Zinc</p>
+
+            <p class="abr">Zn</p>
+        </li>
+        <li>
+            <p class="num">31</p>
+
+            <p class="showhide">Gallium</p>
+
+            <p class="abr">Ga</p>
+        </li>
+        <li>
+            <p class="num">32</p>
+
+            <p class="showhide">Germanium</p>
+
+            <p class="abr">Ge</p>
+        </li>
+        <li>
+            <p class="num">33</p>
+
+            <p class="showhide">Arsenic</p>
+
+            <p class="abr">As</p>
+        </li>
+        <li>
+            <p class="num">34</p>
+
+            <p class="showhide">Selenium</p>
+
+            <p class="abr">Se</p>
+        </li>
+        <li>
+            <p class="num">35</p>
+
+            <p class="showhide">Bromine</p>
+
+            <p class="abr">Br</p>
+        </li>
+        <li>
+            <p class="num">36</p>
+
+            <p class="showhide">Krypton</p>
+
+            <p class="abr">Kr</p>
+        </li>
+        <li>
+            <p class="num">37</p>
+
+            <p class="showhide">Rubidium</p>
+
+            <p class="abr">Rb</p>
+        </li>
+        <li>
+            <p class="num">38</p>
+
+            <p class="showhide">Sliontium</p>
+
+            <p class="abr">Sr</p>
+        </li>
+        <li>
+            <p class="num">39</p>
+
+            <p class="showhide">Ytliium</p>
+
+            <p class="abr">Y</p>
+        </li>
+        <li>
+            <p class="num">40</p>
+
+            <p class="showhide">Zirconium</p>
+
+            <p class="abr">Zr</p>
+        </li>
+        <li>
+            <p class="num">41</p>
+
+            <p class="showhide">Niobium</p>
+
+            <p class="abr">Nb</p>
+        </li>
+        <li>
+            <p class="num">42</p>
+
+            <p class="showhide">Molybdenum</p>
+
+            <p class="abr">Mo</p>
+        </li>
+        <li>
+            <p class="num">43</p>
+
+            <p class="showhide">Technetium</p>
+
+            <p class="abr">Tc</p>
+        </li>
+        <li>
+            <p class="num">44</p>
+
+            <p class="showhide">Ruthenium</p>
+
+            <p class="abr">Ru</p>
+        </li>
+        <li>
+            <p class="num">45</p>
+
+            <p class="showhide">Rhodium</p>
+
+            <p class="abr">Rh</p>
+        </li>
+        <li>
+            <p class="num">46</p>
+
+            <p class="showhide">Palladium</p>
+
+            <p class="abr">Pd</p>
+        </li>
+        <li>
+            <p class="num">47</p>
+
+            <p class="showhide">Silver</p>
+
+            <p class="abr">Ag</p>
+        </li>
+        <li>
+            <p class="num">48</p>
+
+            <p class="showhide">Cadmium</p>
+
+            <p class="abr">Cd</p>
+        </li>
+        <li>
+            <p class="num">49</p>
+
+            <p class="showhide">Indium</p>
+
+            <p class="abr">In</p>
+        </li>
+        <li>
+            <p class="num">50</p>
+
+            <p class="showhide">Tin</p>
+
+            <p class="abr">Sn</p>
+        </li>
+        <li>
+            <p class="num">51</p>
+
+            <p class="showhide">Antimony</p>
+
+            <p class="abr">Sb</p>
+        </li>
+        <li>
+            <p class="num">52</p>
+
+            <p class="showhide">Tellurium</p>
+
+            <p class="abr">Te</p>
+        </li>
+        <li>
+            <p class="num">53</p>
+
+            <p class="showhide">Iodine</p>
+
+            <p class="abr">I</p>
+        </li>
+        <li>
+            <p class="num">54</p>
+
+            <p class="showhide">Xenon</p>
+
+            <p class="abr">Xe</p>
+        </li>
+        <li>
+            <p class="num">55</p>
+
+            <p class="showhide">Cesium</p>
+
+            <p class="abr">Cs</p>
+        </li>
+        <li>
+            <p class="num">56</p>
+
+            <p class="showhide">Barium</p>
+
+            <p class="abr">Ba</p>
+        </li>
+        <li>
+            <p class="num">57</p>
+
+            <p class="showhide">Lanthanum</p>
+
+            <p class="abr">La</p>
+        </li>
+        <li>
+            <p class="num">58</p>
+
+            <p class="showhide">Cerium</p>
+
+            <p class="abr">Ce</p>
+        </li>
+        <li>
+            <p class="num">59</p>
+
+            <p class="showhide">Praseodymium</p>
+
+            <p class="abr">Pr</p>
+        </li>
+        <li>
+            <p class="num">60</p>
+
+            <p class="showhide">Neodymium</p>
+
+            <p class="abr">Nd</p>
+        </li>
+        <li>
+            <p class="num">61</p>
+
+            <p class="showhide">Promethium</p>
+
+            <p class="abr">Pm</p>
+        </li>
+        <li>
+            <p class="num">62</p>
+
+            <p class="showhide">Samarium</p>
+
+            <p class="abr">Sm</p>
+        </li>
+        <li>
+            <p class="num">63</p>
+
+            <p class="showhide">Europium</p>
+
+            <p class="abr">Eu</p>
+        </li>
+        <li>
+            <p class="num">64</p>
+
+            <p class="showhide">Gadolinium</p>
+
+            <p class="abr">Gd</p>
+        </li>
+        <li>
+            <p class="num">65</p>
+
+            <p class="showhide">Terbium</p>
+
+            <p class="abr">Tb</p>
+        </li>
+        <li>
+            <p class="num">66</p>
+
+            <p class="showhide">Dysprosium</p>
+
+            <p class="abr">Dy</p>
+        </li>
+        <li>
+            <p class="num">67</p>
+
+            <p class="showhide">Holmium</p>
+
+            <p class="abr">Ho</p>
+        </li>
+        <li>
+            <p class="num">68</p>
+
+            <p class="showhide">Erbium</p>
+
+            <p class="abr">Er</p>
+        </li>
+        <li>
+            <p class="num">69</p>
+
+            <p class="showhide">Thulium</p>
+
+            <p class="abr">Tm</p>
+        </li>
+        <li>
+            <p class="num">70</p>
+
+            <p class="showhide">Ytterbium</p>
+
+            <p class="abr">Yb</p>
+        </li>
+        <li>
+            <p class="num">71</p>
+
+            <p class="showhide">Lutetium</p>
+
+            <p class="abr">Lu</p>
+        </li>
+        <li>
+            <p class="num">72</p>
+
+            <p class="showhide">Hafnium</p>
+
+            <p class="abr">Hf</p>
+        </li>
+        <li>
+            <p class="num">73</p>
+
+            <p class="showhide">Tantalum</p>
+
+            <p class="abr">Ta</p>
+        </li>
+        <li>
+            <p class="num">74</p>
+
+            <p class="showhide">Tungsten</p>
+
+            <p class="abr">W</p>
+        </li>
+        <li>
+            <p class="num">75</p>
+
+            <p class="showhide">Rhenium</p>
+
+            <p class="abr">Re</p>
+        </li>
+        <li>
+            <p class="num">76</p>
+
+            <p class="showhide">Osmium</p>
+
+            <p class="abr">Os</p>
+        </li>
+        <li>
+            <p class="num">77</p>
+
+            <p class="showhide">Iridium</p>
+
+            <p class="abr">Ir</p>
+        </li>
+        <li>
+            <p class="num">78</p>
+
+            <p class="showhide">Platinum</p>
+
+            <p class="abr">Pt</p>
+        </li>
+        <li>
+            <p class="num">79</p>
+
+            <p class="showhide">Gold</p>
+
+            <p class="abr">Au</p>
+        </li>
+        <li>
+            <p class="num">80</p>
+
+            <p class="showhide">Mercury</p>
+
+            <p class="abr">Hg</p>
+        </li>
+        <li>
+            <p class="num">81</p>
+
+            <p class="showhide">Thallium</p>
+
+            <p class="abr">Tl</p>
+        </li>
+        <li>
+            <p class="num">82</p>
+
+            <p class="showhide">Lead</p>
+
+            <p class="abr">Pb</p>
+        </li>
+        <li>
+            <p class="num">83</p>
+
+            <p class="showhide">Bismuth</p>
+
+            <p class="abr">Bi</p>
+        </li>
+        <li>
+            <p class="num">84</p>
+
+            <p class="showhide">Polonium</p>
+
+            <p class="abr">Po</p>
+        </li>
+        <li>
+            <p class="num">85</p>
+
+            <p class="showhide">Astatine</p>
+
+            <p class="abr">At</p>
+        </li>
+        <li>
+            <p class="num">86</p>
+
+            <p class="showhide">Radon</p>
+
+            <p class="abr">Rn</p>
+        </li>
+        <li>
+            <p class="num">87</p>
+
+            <p class="showhide">Francium</p>
+
+            <p class="abr">Fr</p>
+        </li>
+        <li>
+            <p class="num">88</p>
+
+            <p class="showhide">Radium</p>
+
+            <p class="abr">Ra</p>
+        </li>
+        <li>
+            <p class="num">89</p>
+
+            <p class="showhide">Actinium</p>
+
+            <p class="abr">Ac</p>
+        </li>
+        <li>
+            <p class="num">90</p>
+
+            <p class="showhide">Thorium</p>
+
+            <p class="abr">Th</p>
+        </li>
+        <li>
+            <p class="num">91</p>
+
+            <p class="showhide">Protactinium</p>
+
+            <p class="abr">Pa</p>
+        </li>
+        <li>
+            <p class="num">92</p>
+
+            <p class="showhide">Uranium</p>
+
+            <p class="abr">U</p>
+        </li>
+        <li>
+            <p class="num">93</p>
+
+            <p class="showhide">Neptunium</p>
+
+            <p class="abr">Np</p>
+        </li>
+        <li>
+            <p class="num">94</p>
+
+            <p class="showhide">Plutonium</p>
+
+            <p class="abr">Pu</p>
+        </li>
+        <li>
+            <p class="num">95</p>
+
+            <p class="showhide">Americium</p>
+
+            <p class="abr">Am</p>
+        </li>
+        <li>
+            <p class="num">96</p>
+
+            <p class="showhide">Curium</p>
+
+            <p class="abr">Cm</p>
+        </li>
+        <li>
+            <p class="num">97</p>
+
+            <p class="showhide">Berkelium</p>
+
+            <p class="abr">Bk</p>
+        </li>
+        <li>
+            <p class="num">98</p>
+
+            <p class="showhide">Californium</p>
+
+            <p class="abr">Cf</p>
+        </li>
+        <li>
+            <p class="num">99</p>
+
+            <p class="showhide">Einsteinium</p>
+
+            <p class="abr">Es</p>
+        </li>
+        <li>
+            <p class="num">100</p>
+
+            <p class="showhide">Fermium</p>
+
+            <p class="abr">Fm</p>
+        </li>
+        <li>
+            <p class="num">101</p>
+
+            <p class="showhide">Mendelevium</p>
+
+            <p class="abr">Md</p>
+        </li>
+        <li>
+            <p class="num">102</p>
+
+            <p class="showhide">Nobelium</p>
+
+            <p class="abr">No</p>
+        </li>
+        <li>
+            <p class="num">103</p>
+
+            <p class="showhide">Lawrencium</p>
+
+            <p class="abr">Lr</p>
+        </li>
+        <li>
+            <p class="num">104</p>
+
+            <p class="showhide">Rutherfordium</p>
+
+            <p class="abr">Rf</p>
+        </li>
+        <li>
+            <p class="num">105</p>
+
+            <p class="showhide">Dubnium</p>
+
+            <p class="abr">Db</p>
+        </li>
+        <li>
+            <p class="num">106</p>
+
+            <p class="showhide">Seaborgium</p>
+
+            <p class="abr">Sg</p>
+        </li>
+        <li>
+            <p class="num">107</p>
+
+            <p class="showhide">Bohrium</p>
+
+            <p class="abr">Bh</p>
+        </li>
+        <li>
+            <p class="num">108</p>
+
+            <p class="showhide">Hassium</p>
+
+            <p class="abr">Hs</p>
+        </li>
+        <li>
+            <p class="num">109</p>
+
+            <p class="showhide">Meitnerium</p>
+
+            <p class="abr">Mt</p>
+        </li>
+        <li>
+            <p class="num">110</p>
+
+            <p class="showhide">Darmstadtium</p>
+
+            <p class="abr">Ds</p>
+        </li>
+        <li>
+            <p class="num">111</p>
+
+            <p class="showhide">Roentgenium</p>
+
+            <p class="abr">Rg</p>
+        </li>
+        <li>
+            <p class="num">112</p>
+
+            <p class="showhide">Copernicium</p>
+
+            <p class="abr">Cn</p>
+        </li>
+        <li>
+            <p class="num">113</p>
+
+            <p class="showhide">Ununliium</p>
+
+            <p class="abr">Uut</p>
+        </li>
+        <li>
+            <p class="num">114</p>
+
+            <p class="showhide">Flerovium</p>
+
+            <p class="abr">Fl</p>
+        </li>
+        <li>
+            <p class="num">115</p>
+
+            <p class="showhide">Ununpentium</p>
+
+            <p class="abr">Uup</p>
+        </li>
+        <li>
+            <p class="num">116</p>
+
+            <p class="showhide">Livermorium</p>
+
+            <p class="abr">Lv</p>
+        </li>
+        <li>
+            <p class="num">117</p>
+
+            <p class="showhide">Ununseptium</p>
+
+            <p class="abr">Uus</p>
+        </li>
+        <li>
+            <p class="num">118</p>
+
+            <p class="showhide">Ununoctium</p>
+
+            <p class="abr">Uuo</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
