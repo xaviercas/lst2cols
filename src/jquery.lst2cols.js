@@ -36,14 +36,15 @@
     // Number of items to columnise
     settings.l = settings.colItems.length;
 
+    // Don't do 1 column, or non-existent method
+    if (settings.l <= 1) throw 'Requires 1 or more items';
+    if (settings.colNum <= 1) throw 'Requires 2 or more columns';
+    if (settings.method !== 'tb') {
+      if (settings.method !== 'lr') throw 'Wrong method. Use tb or lr';
+    }
+
     // Run plugin
     return this.each(function() {
-
-      // Don't do 1 column, or non-existent method
-      if (settings.colNum <= 1 || settings.l <= 1) return null;
-      if (settings.method !== 'tb') {
-        if (settings.method !== 'lr') return null;
-      }
 
       var e = $(this);
 
