@@ -5,18 +5,19 @@
 ### Description
 
 A simple, small and hopefully fast jquery plugin to turn an html list into columns. Originally created to work columns into 
-multi level menus. The plugins adds `<ul>`'s and `<li>`'s to breakdown the list into columns, as well as a limited number of classes.
- (It does not add any css rules, classes can be modified via options. You must supply your own css.)
- The plugin is chainable. 
+multi level menus. The plugins adds `<ul>`'s and `<li>`'s to breakdown the list into columns, as well as a limited number 
+of classes. (It does not add any css rules, you must supply your own css.) 
+
+### Examples
+
+http://xaviercas.github.io/lst2cols/
 
 
 ### Usage and Options
 
-(See example)
+Vanilla: ` $('ul.my-list').lst2cols(); `
 
-Vanilla ` $('ul.my-list').lst2cols(); `
-
-With options ` $('ul.my-list').lst2cols({colNum:3, method:'lr'}); `
+With options: ` $('ul.my-list').lst2cols({colNum:3, method:'lr'}); `
 
 The plugin options are:
 
