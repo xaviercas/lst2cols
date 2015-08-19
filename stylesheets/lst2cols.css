@@ -1,0 +1,142 @@
+/* Css for examples */
+
+.example {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.demo {
+    font-size: 0.9rem;
+}
+
+.demo,
+.demo ul,
+.demo li {
+    margin: 0;
+    padding: 0;
+}
+
+.demo li {
+    list-style: outside none none;
+    text-indent: 0;
+}
+
+.main-content .demo ul ul {
+    margin: 11px 0;
+}
+
+.col-block {
+    display: block;
+    overflow: hidden;
+}
+
+/* .clearfix from TWBS */
+.col-block::before,
+.col-block::after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.col-block::after {
+    clear: both;
+}
+
+.demo .col {
+    float: left;
+    margin-left: 20px;
+}
+
+.demo .col:first-child {
+    margin-left: 0;
+}
+
+/* Pantone */
+
+#pantone a {
+    color: #fff;
+    display: block;
+    height: 60px;
+    line-height: 1.2;
+    width: 50px;
+
+}
+
+#pantone ul {
+    padding: 0;
+    background: inherit;
+}
+
+#pantone .col {
+    padding: 5px;
+}
+
+#pantone .col .col {
+    padding: 0;
+    margin: 0;
+}
+
+#pantone .col .col li {
+    padding: 3px 0 0 3px;
+}
+
+/* Periodic table */
+#periodic {
+    margin: 0 auto;
+}
+
+#periodic ul, #periodic .col, #periodic li, #periodic p {
+    padding: 0;
+    margin: 0;
+}
+
+#periodic .col {
+    overflow: visible;
+    margin-left: 8px;
+}
+
+#periodic .col:first-child {
+    margin-left: 0;
+}
+
+#periodic .showhide {
+    display: none !important;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    padding: 5px;
+    border: 1px dotted #111;
+    text-align: center;
+    background: rgb(175, 234, 220);
+    z-index: 100;
+    line-height: 1;
+}
+
+#periodic li:not(.col) {
+    position: relative;
+    background: rgb(158, 151, 142);
+    border: 1px solid #333;
+    padding: 3px;
+    margin: 0 0 5px 0;
+    line-height: 2;
+    cursor: help;
+}
+
+#periodic li:not(.col):hover .showhide {
+    cursor: help;
+    display: block !important;
+}
+
+#periodic .num {
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    font-family: Georgia, serif;
+    color: #fff;;
+}
+
+#periodic .abr {
+    color: rgb(255, 214, 53);
+    font-size: 19px;
+    padding-top: 5px;
+    text-align: center;
+}
