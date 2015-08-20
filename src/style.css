@@ -104,10 +104,6 @@ li {
     text-indent: 0;
 }
 
-ul ul {
-    background: rgb(223, 220, 212);
-}
-
 .example {
     margin-top: 20px;
     overflow: hidden;
@@ -132,7 +128,6 @@ ul ul {
 }
 
 .col {
-    background: rgb(159, 221, 237) none repeat scroll 0 0;
     float: left;
     margin-left: 10px;
     padding: 10px;
@@ -140,21 +135,6 @@ ul ul {
 
 .col:first-child {
     margin-left: 0;
-}
-
-.swatch {
-    height: 20px;
-    padding: 3px;
-    text-align: center;
-    width: 29px;
-}
-
-.swatch.swatch-ul {
-    background: rgb(223, 220, 212);
-}
-
-.swatch.swatch-li {
-    background: rgb(159, 221, 237);
 }
 
 /* Pantone */
@@ -178,6 +158,60 @@ ul ul {
 
 #pantone .col .col {
     padding: 0;
+}
+
+/* Flex box (look ma no floats!) */
+/* prefixes by http://simevidas.jsbin.com/gufoko/quiet */
+.flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-flow: row no-wrap ;
+    -ms-flex-flow: row no-wrap ;
+    flex-flow: row no-wrap ;
+}
+
+.flex-item {
+    width: 33.3333%;
+    margin: 0 10px;
+}
+
+.col-1.flex-item {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    background: #bbb;
+}
+
+.col-2.flex-item {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    background: #ccc;
+}
+
+.col-3.flex-item {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    background: #ddd;
 }
 
 /* Periodic table */

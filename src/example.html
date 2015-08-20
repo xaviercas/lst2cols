@@ -30,6 +30,19 @@
             $('#lr-col-a').lst2cols(o);
             $('#lr-col-b').lst2cols({method: 'lr'});
 
+            // Flex example
+            // =============================================================
+            // Options
+            var o = {
+                colNum: 3,
+                method: 'tb',
+                colClass: 'flex-item',
+                colBlockClass: 'flex-container'
+            };
+            $('#flex-a').lst2cols(o);
+            o.colNum = 2;
+            $('#flex-b').lst2cols(o);
+
             // Pantone: One more example single items and too many columns
             // =============================================================
             $('#pantone').lst2cols({method: 'lr', colNum: 9});
@@ -45,11 +58,8 @@
 <body>
 
 <div class="example">
+
     <h2>List rendered top to bottom</h2>
-
-    <p class="swatch swatch-li">&ltul&gt</p>
-
-    <p class="swatch swatch-ul">&ltli&gt</p>
 
     <ul id="tb-col-a">
         <li><a href="#">Test 1</a></li>
@@ -88,11 +98,9 @@
 </div>
 
 <div class="example">
+
     <h2>List rendered left to right</h2>
 
-    <p class="swatch swatch-li">&ltul&gt</p>
-
-    <p class="swatch swatch-ul">&ltli&gt</p>
     <ul id="lr-col-a">
         <li><a href="#">Test 1</a></li>
         <li><a href="#">Test 2</a></li>
@@ -129,9 +137,50 @@
     </ul>
 </div>
 
-<!-- So on... -->
 <div class="example">
+
+    <h2>Using css flexible box layout</h2>
+
+    <ul id="flex-a">
+        <li><a href="#">Test 1</a></li>
+        <li><a href="#">Test 2</a></li>
+        <li><a href="#">Test 3</a></li>
+        <li><a href="#">Test 4</a></li>
+        <li><a href="#">Test 5</a></li>
+        <li><a href="#">Test 6</a></li>
+        <li><a href="#">Test 7</a></li>
+        <li><a href="#">Test 8</a></li>
+        <li><a href="#">Test 9</a></li>
+        <li><a href="#">Test 10</a></li>
+        <li>
+            <a href="#">Test 11</a>
+            <ul id="flex-b">
+                <li><a href="#">Test 2-1</a></li>
+                <li><a href="#">Test 2-2</a></li>
+                <li><a href="#">Test 2-3</a></li>
+                <li><a href="#">Test 2-4</a></li>
+                <li><a href="#">Test 2-5</a></li>
+                <li><a href="#">Test 2-6</a></li>
+                <li><a href="#">Test 2-7</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Test 12</a></li>
+        <li><a href="#">Test 13</a></li>
+        <li><a href="#">Test 14</a></li>
+        <li><a href="#">Test 15</a></li>
+        <li><a href="#">Test 16</a></li>
+        <li><a href="#">Test 17</a></li>
+        <li><a href="#">Test 18</a></li>
+        <li><a href="#">Test 19</a></li>
+        <li><a href="#">Test 20</a></li>
+        <li><a href="#">Test 21</a></li>
+    </ul>
+</div>
+
+<div class="example">
+
     <h2>List single column item</h2>
+
     <ul id="pantone">
         <li style="background: rgb(234, 39, 194);"><a href="#">Pastels Neons 807 C</a></li>
         <li style="background: rgb(68, 214, 44);"><a href="#">Pastels Neons 802 C</a></li>
@@ -151,7 +200,6 @@
     </ul>
 </div>
 
-<!-- Periodic -->
 <div class="example">
     <h2>Just fo fun</h2>
     <ul id='periodic'>
