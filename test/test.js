@@ -96,7 +96,7 @@ QUnit.test('Column count', function(assert) {
       'lr method default to 2 columns');
 
   o.colNum = 3;
-  assert.equal($('#t-5').lst2cols(o).children('li').length, 3,
+  assert.equal($('#t-5').lst2cols(o).children('li').length, 9,
       'lr method set to 3 columns');
 
   o.colNum = 10;
