@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/xaviercas/lst2cols.svg?branch=master)](https://travis-ci.org/xaviercas/lst2cols)
+
 # lst2cols
 
 #### Jquery Plugin to Columnise an Html List
