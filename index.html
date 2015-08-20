@@ -14,10 +14,12 @@
     <script src="./javascripts/jquery.lst2cols.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+
             // Top to bottom example
             // =============================================================
             $('#tb-col-a').lst2cols({colNum: 3});
             $('#tb-col-b').lst2cols();
+
             // Left to right example
             // =============================================================
             // Options
@@ -29,10 +31,25 @@
             };
             $('#lr-col-a').lst2cols(o);
             $('#lr-col-b').lst2cols({method: 'lr'});
+
+            // Flex example
+            // =============================================================
+            // Options
+            var op = {
+                colNum: 3,
+                method: 'tb',
+                colClass: 'flex-item',
+                colBlockClass: 'flex-container'
+            };
+            $('#flex-a').lst2cols(op);
+            op.colNum = 2;
+            $('#flex-b').lst2cols(op);
+
             // Pantone: One more example single items and too many columns
             // =============================================================
             $('#pantone').lst2cols({method: 'lr', colNum: 9});
             $('#pantone-a').lst2cols({method: 'lr'});
+
             // Just for fun
             // // =============================================================
             $('#periodic').lst2cols({colNum: 17, method: 'lr'});
@@ -110,19 +127,17 @@
 
         <h4>Css</h4>
 
-        <p>
         <pre><code>
-/* Remove list formating */
-ul, li { margin: 0; padding: 0; }
-li { list-style: none; text-indent: 0; }
-/* columns */
-.col { float: left; margin-left: 20px; }
-.col:first-child { margin-left: 0; }
-/* Columns container (clearfix from TWBS) */
-.col-block::before, .col-block::after { content: ""; display: table; line-height: 0; }
-.col-block::after { clear: both; }
+            /* Remove list formating */
+            ul, li { margin: 0; padding: 0; }
+            li { list-style: none; text-indent: 0; }
+            /* columns */
+            .col { float: left; margin-left: 20px; }
+            .col:first-child { margin-left: 0; }
+            /* Columns container (clearfix from TWBS) */
+            .col-block::before, .col-block::after { content: ""; display: table; line-height: 0; }
+            .col-block::after { clear: both; }
         </code></pre>
-        </p>
     </div>
 
     <div class="example">
@@ -182,6 +197,48 @@ li { list-style: none; text-indent: 0; }
             <li>
                 <a href="#">Test 11</a>
                 <ul id="lr-col-b">
+                    <li><a href="#">Test 2-1</a></li>
+                    <li><a href="#">Test 2-2</a></li>
+                    <li><a href="#">Test 2-3</a></li>
+                    <li><a href="#">Test 2-4</a></li>
+                    <li><a href="#">Test 2-5</a></li>
+                    <li><a href="#">Test 2-6</a></li>
+                    <li><a href="#">Test 2-7</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Test 12</a></li>
+            <li><a href="#">Test 13</a></li>
+            <li><a href="#">Test 14</a></li>
+            <li><a href="#">Test 15</a></li>
+            <li><a href="#">Test 16</a></li>
+            <li><a href="#">Test 17</a></li>
+            <li><a href="#">Test 18</a></li>
+            <li><a href="#">Test 19</a></li>
+            <li><a href="#">Test 20</a></li>
+            <li><a href="#">Test 21</a></li>
+        </ul>
+    </div>
+
+    <!-- Flex example -->
+
+    <div class="example">
+
+        <h2>Using css flexible box layout</h2>
+
+        <ul id="flex-a" class="demo">
+            <li><a href="#">Test 1</a></li>
+            <li><a href="#">Test 2</a></li>
+            <li><a href="#">Test 3</a></li>
+            <li><a href="#">Test 4</a></li>
+            <li><a href="#">Test 5</a></li>
+            <li><a href="#">Test 6</a></li>
+            <li><a href="#">Test 7</a></li>
+            <li><a href="#">Test 8</a></li>
+            <li><a href="#">Test 9</a></li>
+            <li><a href="#">Test 10</a></li>
+            <li>
+                <a href="#">Test 11</a>
+                <ul id="flex-b">
                     <li><a href="#">Test 2-1</a></li>
                     <li><a href="#">Test 2-2</a></li>
                     <li><a href="#">Test 2-3</a></li>
